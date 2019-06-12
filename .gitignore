@@ -1,0 +1,11 @@
+node_modules/
+dist/
+reports/
+build/
+.scannerwork/
+.nyc_output/
+.vscode/
+.env
+.results
+results
+stats.json
