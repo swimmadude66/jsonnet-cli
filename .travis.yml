@@ -14,7 +14,7 @@ script:
 deploy:
   skip_cleanup: true
   on:
-    repo: steadyopensource/jsonnet-cli
+    repo: steadyapp/jsonnet-cli
     node: "10"
     tags: true
     branch: master
