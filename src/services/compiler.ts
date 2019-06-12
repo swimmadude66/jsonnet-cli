@@ -1,5 +1,5 @@
 import * as Jsonnet from '@rbicker/jsonnet';
-import {stringify as yamlStringify} from 'json2yaml';
+import {stringify as yamlStringify} from 'yaml';
 
 export class JsonnetCompiler {
     
@@ -10,13 +10,17 @@ export class JsonnetCompiler {
     }
  
     compileCode(code: string, yamlOutput: boolean = false): string {
-        const result = this._compiler.eval(code);
-        let formattedResult: string;
-        if (yamlOutput) {
-            formattedResult = yamlStringify(result);
-        } else {
-            formattedResult = JSON.stringify(result);
+        try {
+            const result = this._compiler.eval(code);
+            let formattedResult: string;
+            if (yamlOutput) {
+                formattedResult = yamlStringify(result);
+            } else {
+                formattedResult = JSON.stringify(result);
+            }
+            return formattedResult;
+        } catch (e) {
+            throw e;
         }
-        return formattedResult;
     }
 }

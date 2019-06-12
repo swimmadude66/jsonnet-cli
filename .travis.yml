@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - "8"
+  - "10"
+  - "12"
+
+install: 
+  - npm install
+
+script: 
+  - npm test
+  - npm run build
+
+deploy:
+  skip_cleanup: true
+  on:
+    repo: steadyopensource/jsonnet-cli
+    node: "10"
+    tags: true
+    branch: master
+  provider: npm
+  email: "opensource@steadyapp.com"
+  api_key: 
+    secure: "ZgzZqgKy4VYck441U8wSxIENAV1vaeQDvvsnL7qbA8X7sQt4GI0t4Y/QmxCyx5LWPxEjmxnNbLblj6iCxQ74r9KV3/5nWbw1ifMqgrXyM5q8GgpEav8kBgkLUHurGW5IKl79fRnFfSszbgNDY7iWX/BnUDGLZvbAch3UsQm3YEhY/w9a5rQ9ACRvd2KVk7Qx3vcILzJjPGTPO3o4Xjg6WiWss0l0H3cRQYFDPZIuXfaFhSyC9aAydXVvWP30XTO3xS07Xu4LrRmu37zi/NRs79MvhZ4O+O0iQjL+MUYQvYVhIECBo08Hd/azN/wo3lTrktTtKfBjAUhvn12cboAJV5umBiXVorfGtUJTmlqg3GvRb2RsV71UzpMq1EiKeIVOZAoHapsABxJ+j+96DO4M/wYvptXkB9wc+cl6tp/OS5oDpS+l9P3psEjsRE7VF5cxzXFe17Jru/nA/1r7IshiBamY58kses55mrLAcs9CBzW4/BE0COVANCcbwRN8K7lO5je2wtBHSgOY6pPda6ITX86Aoz7xA8sFZmfDrBDSxXWFtuseV9ZmjpgbTJnjxXkmBWix6UQnyhI/gy5+2ddljrBdEXC2LcawigiQ7VvLejaKwqV8zWiPRJkUAEx7i4pxn1yiddntCiGO0YyDiOzLWXBmjhc4qvsoEx7KBoJYiX0="
